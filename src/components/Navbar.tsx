@@ -1,22 +1,23 @@
 import { Link } from "react-router"
-import etsEsportLogoBlack from "../assets/ets_esport_logo_black.png"
+import etsEsportLogo from "/assets/ets_esport_logo_white.png"
 import { useState } from "react"
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md mb-[2rem]">
+    <nav className="sticky top-0 z-50 bg-rouge text-blanc h-14">
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14">
           <div className="flex items-center space-x-4 mr-8">
-            <img src={etsEsportLogoBlack} alt="ETS Logo" className="h-20" />
-            <span className="font-bold text-xl">ETS E-SPORT</span>
+            <Link to="/" className="transition">
+              <img src={etsEsportLogo} alt="ETS Logo" className="h-14" />
+            </Link>
           </div>
           <div className="hidden md:flex space-x-6">
-            <Link to="/" className="transition">Home</Link>
-            <Link to="/timeline" className="transition">Timeline</Link>
-            <Link to="/sponsors" className="transition">Sponsors</Link>
+            <Link to="/" className="transition text-2xl">Home</Link>
+            <Link to="/timeline" className="transition text-2xl">Timeline</Link>
+            <Link to="/sponsors" className="transition text-2xl">Sponsors</Link>
           </div>
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)}>
