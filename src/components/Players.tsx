@@ -39,7 +39,7 @@ const mockPlayers: Player[] = [
     ]
 
 /* ------------------------------------------------------------------ */
-/* Composant principal                                             */
+/* main component                                              */
 /* ------------------------------------------------------------------ */
 export default function Players() {
   const [filter, setFilter]         = useState<null | Player["game"]>(null)
@@ -50,13 +50,13 @@ export default function Players() {
 
 
 /* ---------------------------------------------------------------- */
-/* Mise en page :                                                   */
+/* Layout:                                                   */
 /* ---------------------------------------------------------------- */
 return (
   <div className="flex flex-col lg:flex-row gap-6 p-4 lg:p-8">
-    {/* -------- Liste des joueurs (gauche) ----------------------- */}
+    {/* -------- player list - left ----------------------- */}
     <section className="lg:basis-1/2">
-      {/* Filtres */}
+      {/* Filters */}
       <header className="flex flex-wrap justify-center gap-3 mb-6">
         {games.map(g => (
           <button
@@ -72,7 +72,7 @@ return (
         ))}
       </header>
 
-      {/* Grille des vignettes */}
+      {/* grid players */}
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {list.map(p => (
           <button
@@ -99,7 +99,7 @@ return (
       </div>
     </section>
 
-    {/* -------- Panneau de détail (droite) ------------------------ */}
+    {/* -------- Right panel ------------------------ */}
     <aside className="lg:basis-1/2 lg:sticky lg:top-24">
       {selected ? (
         <article
