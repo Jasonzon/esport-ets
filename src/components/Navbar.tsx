@@ -18,6 +18,7 @@ function Navbar() {
             <Link to="/" className="transition text-2xl">Home</Link>
             <Link to="/timeline" className="transition text-2xl">Timeline</Link>
             <Link to="/sponsors" className="transition text-2xl">Sponsors</Link>
+            <Link to="/Players" className="transition text-2xl">Players</Link>
           </div>
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)}>
@@ -36,6 +37,7 @@ function Navbar() {
             <Link to="/" className="transition">Home</Link>
             <Link to="/timeline" className="transition">Timeline</Link>
             <Link to="/sponsors" className="transition">Sponsors</Link>
+            <Link to="/Players" className="transition text-2xl">Players</Link>
           </div>
         )}
       </div>
