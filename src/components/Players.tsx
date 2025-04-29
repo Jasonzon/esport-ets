@@ -3,8 +3,8 @@ import { useState } from "react"
 type Player = {
   id: string
   name: string
-  game: "Valorant" | "League of Legends" | "Rocket League" | "CS2" | "Apex Legends" | "Fighting Games" | "Teamfight Tactics"
-  avatar: string      // image miniature 245px
+  game: "Rainbow Six Siege" | "League of Legends" | "Rocket League" | "CS2" | "Apex Legends" | "Fighting Games" | "Teamfight Tactics" | "Valorant"
+  grid: string      // image miniature 245px
   banner: string      // image grand format 800-1200 px
   bio: string
 }
@@ -12,29 +12,45 @@ type Player = {
 const mockPlayers: Player[] = [
     // note : team doesn't eaquals a full team, 
     // you can reference players you have even if you don't have a full team it'll help find new ones.
+    //IMPORTANT : make sure each ID differs from each other
+
+    // Rainbow Six Siege :
+
+    { id: "r6_1", name: "NikBii", game: "Rainbow Six Siege", grid: "public/assets/players/Players_grid/Player_Grid_NikBii.png", banner: "public/assets/players/Players_banner/Player_Banner_r6.png",
+      bio: "Manager de l'équipe R6." },
+
 
     //teamfight tactics : 
-    { id: "t1", name: "Chop", game: "Teamfight Tactics", avatar: "public/assets/players/chop.jpg", banner: "public/assets/players/chop.jpg", 
+    { id: "t1", name: "Chop'", game: "Teamfight Tactics", grid: "public/assets/players/Players_grid/chop_grid.jpg", banner: "public/assets/players/Players_banner/Player_Banner_TFT.png", 
       bio: "Gagnant de tout en fait." },
     
     // Valorant :
-    { id: "v1", name: "Ace",  game: "Valorant", avatar: "/assets/players/ace.png", banner: "/assets/players/ace.png",
-      bio: "Je suis le meilleur joueur de Valorant au monde." },
+    { id: "v1_1", name: "Stoat",  game: "Valorant", grid: "public/assets/players/Players_grid/Player_Grid_Stoat.png", banner: "public/assets/players/Players_banner/ValorantTeam1/Player_Banner_stoat.png",
+      bio: "Stoat fait partie de l'équipe principale." },
+
+    { id: "v1_2", name: "Elusive",  game: "Valorant", grid: "public/assets/players/Players_grid/Player_Grid_Elusive.png", banner: "public/assets/players/Players_banner/ValorantTeam1/Player_Banner_Elusive.png",
+      bio: "Elusive fait partie de l'équipe principale" },
+
+    { id: "v1_3", name: "Anku",  game: "Valorant", grid: "public/assets/players/Players_grid/Player_Grid_Anku.png", banner: "public/assets/players/Players_banner/ValorantTeam1/Player_Banner_Anku.png",
+      bio: "Anku fait partie de l'équipe principale" },
+
+    { id: "v1_4", name: "Kettada",  game: "Valorant", grid: "public/assets/players/Players_grid/Player_Grid_Kettada.png", banner: "public/assets/players/Players_banner/ValorantTeam1/Player_Banner_Kettada.png",
+      bio: "Kettada fait partie de l'équipe principale" },
 
     // LoL : 
-    { id: "l1", name: "Lux",  game: "League of Legends", avatar: "public/assets/players/lux.jpg", banner: "public/assets/players/lux.jpg",
+    { id: "l1", name: "Manager - ",  game: "League of Legends", grid: "public/assets/players/lux.jpg", banner: "public/assets/players/Players_banner/Player_Banner_LOL.png",
       bio: "Je suis la meilleure support du monde." },
 
     //Rocket League : 
-    { id: "r1", name: "Octane", game: "Rocket League", avatar: "/assets/players/octane.png", banner: "/assets/players/octane.png",
+    { id: "r1", name: "JoueurRL", game: "Rocket League", grid: "", banner: "public/assets/players/Players_banner/Player_Banner_RocketLeague.png",
       bio: "Je suis le meilleur joueur de Rocket League au monde." },
 
     //Counter Strike : 
-    { id: "c1", name: "Niko", game: "CS2", avatar: "/assets/players/niko.png", banner: "/assets/players/niko.png",
+    { id: "c1", name: "JoeurCS", game: "CS2", grid: "", banner: "public/assets/players/Players_banner/Player_Banner_CS2.png",
       bio: "Je suis le meilleur joueur de CS2 au monde." },
 
     //Fighting games :
-    { id: "f2", name: "DigitalCakeBell", game: "Fighting Games", avatar: "/assets/players/chun-li.png", banner: "/assets/players/chun-li.png",
+    { id: "f2", name: "DigitalCakeBell", game: "Fighting Games", grid: "/assets/players/chun-li.png", banner: "public/assets/players/Players_banner/Player_Banner_Fighting.png",
       bio: "Je suis le meilleur joueur de Fighting Games au monde." },
     ]
 
@@ -82,10 +98,16 @@ return (
                         focus:outline-none focus:ring-2 focus:ring-rouge"
           >
             <img
-              src={p.avatar}
+              src={p.grid}
               alt={p.name}
-              className="w-full h-40 object-cover transition-transform
-                          group-hover:scale-105"
+              className="
+                w-full 
+                h-40 
+                object-cover 
+                transition-transform 
+                scale-125
+                group-hover:scale-150
+                group-hover:blur-xs"
             />
             <span
               className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100
@@ -109,7 +131,7 @@ return (
           <img
             src={selected.banner}
             alt={selected.name}
-            className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+            className="w-full h-64 md:h-70 object-cover rounded-xl shadow-lg"
           />
           <h2 className="text-5xl font-bold text-rouge">{selected.name}</h2>
           <h3 className="text-2xl font-medium text-blanc mb-2">
